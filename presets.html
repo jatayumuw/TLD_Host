@@ -64,7 +64,7 @@
     <div class="preset-deck" role="group" aria-label="Lima preset Temaram">
       <button type="button" class="preset-poster-card is-active" data-preset-card="mystic-sanctum" aria-pressed="true" style="--preset-glow:#E09648;">
         <span class="preset-poster-frame">
-          <img src="assets/preset-art-mystic-sanctum.webp" alt="Mystic Sanctum" width="338" height="545" decoding="async">
+          <img src="assets/preset-art-mystic-sanctum.webp" alt="Mystic Sanctum" width="338" height="545" fetchpriority="high" decoding="async">
         </span>
         <span class="preset-poster-meta">
           <span class="preset-poster-cat"><span class="preset-swatch" style="--preset-glow:#E09648;" aria-hidden="true"></span><span data-card-kicker>Relaksasi</span></span>
@@ -118,7 +118,7 @@
     <section id="preset-detail" class="preset-detail-section" data-preset-detail aria-live="polite">
       <div class="preset-detail-grid">
         <div class="preset-detail-media" data-detail-media>
-          <img src="assets/preset-art-mystic-sanctum.webp" alt="Mystic Sanctum" width="338" height="545" loading="lazy" decoding="async">
+          <img src="assets/preset-art-mystic-sanctum.webp" alt="Mystic Sanctum" width="338" height="545" fetchpriority="high" decoding="async">
         </div>
 
         <div class="preset-detail-info">
@@ -207,9 +207,8 @@
     </div>
   </footer>
 
-  <script src="presets-data.js"></script>
-  <script src="i18n.js"></script>
-  <script src="temaram-room-art.js"></script>
-  <script src="main.js"></script>
+  <script src="presets-data.js" defer></script>
+  <script src="i18n.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

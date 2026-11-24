@@ -131,20 +131,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const presetsStage = document.querySelector('[data-presets-stage]');
   const roomSvgMount = document.querySelector('[data-anatomy-room-svg]');
 
-  if (presetsStage && roomSvgMount && window.TEMARAM_ROOM_SVG) {
-    roomSvgMount.innerHTML = window.TEMARAM_ROOM_SVG;
-    if (window.TEMARAM_ROOM_META) {
-      document.body.style.setProperty('--lamp-x', `${window.TEMARAM_ROOM_META.lampPctX}%`);
-      document.body.style.setProperty('--lamp-y', `${window.TEMARAM_ROOM_META.lampPctY}%`);
-    }
-  }
-
-  const roomCone = document.querySelector('[data-room-cone]');
+  let roomCone = null;
+  let roomArtPromise = null;
   let currentConeR = 0;
   let targetConeR = 0;
   let coneAnimId = null;
   let lastConeTs = 0;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function mountRoomArt() {
+    if (!presetsStage || !roomSvgMount || !window.TEMARAM_ROOM_SVG) return false;
+    if (!roomSvgMount.firstChild) {
+      roomSvgMount.innerHTML = window.TEMARAM_ROOM_SVG;
+      if (window.TEMARAM_ROOM_META) {
+        document.body.style.setProperty('--lamp-x', `${window.TEMARAM_ROOM_META.lampPctX}%`);
+        document.body.style.setProperty('--lamp-y', `${window.TEMARAM_ROOM_META.lampPctY}%`);
+      }
+      roomCone = document.querySelector('[data-room-cone]');
+    }
+    return true;
+  }
+
+  function ensureRoomArtLoaded() {
+    if (!presetsStage || !roomSvgMount) return Promise.resolve(false);
+    if (mountRoomArt()) return Promise.resolve(true);
+    if (roomArtPromise) return roomArtPromise;
+
+    roomArtPromise = new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'temaram-room-art.js';
+      script.async = true;
+      script.onload = () => {
+        const mounted = mountRoomArt();
+        if (mounted && isAudioPlaying) {
+          const active = presets.find((p) => p.id === activePresetId) || presets[1];
+          syncPreviewAtmosphere(active);
+        }
+        resolve(mounted);
+      };
+      script.onerror = () => {
+        roomArtPromise = null;
+        resolve(false);
+      };
+      document.head.appendChild(script);
+    });
+    return roomArtPromise;
+  }
 
   function tickRoomCone(ts) {
     if (!roomCone) {
@@ -246,7 +278,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (mediaBox && active.image) {
-        mediaBox.innerHTML = `<img src="${active.image}" alt="${active.title}" width="338" height="544" decoding="async">`;
+        const existingImg = mediaBox.querySelector('img');
+        if (existingImg) {
+          if (existingImg.getAttribute('src') !== active.image) {
+            existingImg.setAttribute('src', active.image);
+          }
+          existingImg.setAttribute('alt', active.title);
+        } else {
+          mediaBox.innerHTML = `<img src="${active.image}" alt="${active.title}" width="338" height="544" decoding="async">`;
+        }
       }
     }
   }
@@ -263,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stopSynthPreview();
       } else {
         activePresetId = target.id;
+        ensureRoomArtLoaded();
         startSynthPreview(target.audioProfile);
       }
       renderPresetPageState();
@@ -281,9 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    document.querySelector('[data-detail-play]')?.addEventListener('click', () => {
-      togglePlayFor(activePresetId);
-    });
+    const playBtn = document.querySelector('[data-detail-play]');
+    if (playBtn) {
+      playBtn.addEventListener('pointerenter', () => ensureRoomArtLoaded(), { once: true });
+      playBtn.addEventListener('focus', () => ensureRoomArtLoaded(), { once: true });
+      playBtn.addEventListener('click', () => {
+        togglePlayFor(activePresetId);
+      });
+    }
   }
 
   function applyLanguage(lang) {

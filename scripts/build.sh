@@ -13,8 +13,14 @@ for item in *.html *.css *.js CNAME robots.txt sitemap.xml favicon.ico manifest.
 done
 
 if [ -d assets ]; then
-  cp -R assets dist/assets
-  find dist -name '.DS_Store' -exec rm -f {} +
+  mkdir -p dist/assets
+  grep -rohE 'assets/[A-Za-z0-9_./-]+' dist/*.html dist/*.css dist/*.js \
+    | sort -u \
+    | while IFS= read -r rel_path; do
+        if [ -f "$rel_path" ]; then
+          cp "$rel_path" "dist/$rel_path"
+        fi
+      done
 fi
 
 touch dist/.nojekyll

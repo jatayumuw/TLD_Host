@@ -200,7 +200,7 @@ body.theme-night[data-page="home"] .site-hero {
   background-image:
     linear-gradient(to bottom, rgba(15, 17, 23, 0) 68%, var(--bg-page) 100%),
     linear-gradient(100deg, rgba(15, 17, 23, 0.96) 0%, rgba(15, 17, 23, 0.86) 46%, rgba(15, 17, 23, 0.56) 100%),
-    url('assets/hero-desk-night-w.jpg');
+    url('assets/hero-desk-night-w.webp');
   background-size: cover, cover, cover;
   background-position: center, center, center;
 }
