@@ -177,9 +177,9 @@ main:focus {
 }
 
 .bridge-card.is-studio-register a:focus-visible,
-body.theme-night:not([data-page="presets"]) .footer-base a:focus-visible,
-body.theme-night:not([data-page="presets"]) .footer-base button:focus-visible,
-body.theme-night:not([data-page="presets"]) .footer-form-card button:focus-visible {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-base a:focus-visible,
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-base button:focus-visible,
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card button:focus-visible {
   outline-color: #C24B1E;
 }
 
@@ -207,6 +207,15 @@ body.theme-night[data-page="home"] .site-hero {
 
 body.theme-night[data-page="temaram"] .site-hero {
   background-image: radial-gradient(ellipse at 78% 48%, rgba(224, 138, 60, 0.16), transparent 54%);
+  background-size: cover;
+  background-position: center;
+}
+
+body.theme-night[data-page="about"] .site-hero {
+  min-height: min(92svh, 820px);
+  background-image:
+    radial-gradient(ellipse 68% 58% at 78% 24%, rgba(194, 75, 30, 0.16), transparent 56%),
+    radial-gradient(ellipse 52% 46% at 18% 72%, rgba(153, 135, 239, 0.08), transparent 60%);
   background-size: cover;
   background-position: center;
 }
@@ -1381,6 +1390,9 @@ body.is-previewing .anatomy-room-svg-wrap {
   height: auto;
   aspect-ratio: 3 / 4;
   border-radius: 12px;
+  background-color: #E9E3D8;
+  border-color: rgba(240, 230, 220, 0.18);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.30);
   cursor: pointer;
 }
 
@@ -1713,7 +1725,7 @@ body.theme-night[data-page="presets"] .footer-base {
 }
 
 /* Night-to-Studio-Paper dusk transition & shared tld studio footer across dark narrative pages */
-body.theme-night:not([data-page="presets"]) .bridge-section {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .bridge-section {
   padding: clamp(64px, 7vw, 104px) 0 clamp(32px, 3.5vw, 48px);
   background: linear-gradient(
     to bottom,
@@ -1726,70 +1738,70 @@ body.theme-night:not([data-page="presets"]) .bridge-section {
   );
 }
 
-body.theme-night:not([data-page="presets"]) .site-footer {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .site-footer {
   margin-top: 0;
   padding-top: clamp(24px, 3vw, 40px);
   background-color: #F2EFE9;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.055) 100%), rgba(24, 22, 20, 0.86);
   border-color: rgba(255, 255, 255, 0.14);
   color: #FAF8F4;
   box-shadow: 0 18px 40px rgba(24, 22, 20, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-field input {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-field input {
   background-color: rgba(250, 248, 244, 0.94);
   color: #181614;
   border-color: rgba(255, 255, 255, 0.34);
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-field input::placeholder {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-field input::placeholder {
   color: #6E675F;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-field input:focus {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-field input:focus {
   outline-color: #C24B1E;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .footer-submit {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .footer-submit {
   background-color: #C24B1E;
   color: #FAF8F4;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .footer-submit:hover,
-body.theme-night:not([data-page="presets"]) .footer-form-card .footer-submit:focus-visible {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .footer-submit:hover,
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .footer-submit:focus-visible {
   background-color: #A63D16;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-note {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-note {
   color: #CFC8BE;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-note a {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-note a {
   color: #F4A27E;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-form-card .form-status {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-form-card .form-status {
   color: #F2EFE9;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-base {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-base {
   background-color: #E5DEC9;
   border-top: 1px solid rgba(24, 22, 20, 0.12);
 }
 
-body.theme-night:not([data-page="presets"]) .footer-links {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-links {
   color: #4B453F;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-links a:hover,
-body.theme-night:not([data-page="presets"]) .footer-links a:focus-visible {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-links a:hover,
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-links a:focus-visible {
   color: #C24B1E;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-copy {
+body.theme-night:not([data-page="presets"]):not([data-page="about"]) .footer-copy {
   color: #6E675F;
 }
 
@@ -1826,7 +1838,8 @@ body.theme-night:not([data-page="presets"]) .footer-copy {
 
 @media (max-width: 960px) {
   .site-hero,
-  body.theme-studio .site-hero {
+  body.theme-studio .site-hero,
+  body.theme-night[data-page="about"] .site-hero {
     min-height: auto;
     display: block;
   }
