@@ -265,11 +265,10 @@ body.theme-studio .site-hero {
   mask-composite: intersect;
 }
 
-/* 3-Column Centered Desktop Navbar (Logo Left | Links Center | Subscribe Right) */
+/* 3-Column Full-Width Navbar (Logo Left | Links Center | Lang Switch Right) */
 .site-nav {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: clamp(20px, 2.5vw, 36px) var(--gutter) 0;
+  width: 100%;
+  padding: clamp(20px, 2.5vw, 36px) clamp(20px, 3.5vw, 52px) 0;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -282,7 +281,7 @@ body.theme-studio .site-hero {
   justify-self: start;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  border-radius: 6px;
   text-decoration: none;
 }
 
@@ -292,26 +291,6 @@ body.theme-studio .site-hero {
   height: 37px;
   color: #C24B1E;
   flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.brand-name {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink-primary);
-}
-
-.brand-sub {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-muted);
-  margin-top: 2px;
 }
 
 .nav-links {
@@ -365,10 +344,6 @@ body.theme-studio .nav-links a.is-active {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), 0 1px 4px rgba(24, 22, 20, 0.08);
 }
 
-.nav-mobile-extras {
-  display: none;
-}
-
 .nav-right {
   justify-self: end;
   display: flex;
@@ -376,7 +351,7 @@ body.theme-studio .nav-links a.is-active {
   gap: 12px;
 }
 
-/* Segmented ID | EN Switch (lives in Footer + Mobile Drawer) */
+/* Segmented ID | EN Switch (lives in Header) */
 .lang-switch {
   display: inline-flex;
   align-items: center;
@@ -385,7 +360,7 @@ body.theme-studio .nav-links a.is-active {
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: 999px;
-  padding: 4px;
+  padding: 5px;
   gap: 2px;
   box-shadow: var(--glass-pill-shadow);
 }
@@ -394,12 +369,12 @@ body.theme-studio .nav-links a.is-active {
   appearance: none;
   border: none;
   background: transparent;
-  color: var(--ink-muted);
+  color: var(--ink-secondary);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  padding: 5px 12px;
+  padding: 7px 12px;
   border-radius: 999px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -525,6 +500,14 @@ body.theme-studio .hero-title {
   max-width: 540px;
   color: var(--ink-secondary);
   text-wrap: pretty;
+}
+
+.hero-actions {
+  margin-top: clamp(28px, 3vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 .floating-bar {
@@ -661,33 +644,6 @@ body.theme-studio .hero-title {
   height: 48px;
   border-radius: 10px;
   border: 1px solid var(--border-hairline);
-}
-
-.hero-asset-note {
-  position: absolute;
-  right: var(--gutter);
-  bottom: 28px;
-  max-width: 340px;
-  background: var(--glass-bg-subtle);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px dashed var(--border-strong);
-  border-radius: 16px;
-  padding: 12px 16px;
-  z-index: 3;
-  box-shadow: var(--glass-pill-shadow);
-}
-
-.hero-asset-note .asset-badge {
-  margin-bottom: 4px;
-}
-
-.hero-asset-note p {
-  margin: 4px 0 0;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1.5;
-  color: var(--ink-secondary);
 }
 
 /* Section 2: Features 2-Column + Stats Strip */
@@ -1837,35 +1793,7 @@ body.theme-night:not([data-page="presets"]) .footer-copy {
   color: #6E675F;
 }
 
-body.theme-night:not([data-page="presets"]) .footer-base .lang-switch {
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.42) 100%), rgba(246, 243, 237, 0.62);
-  border-color: rgba(24, 22, 20, 0.16);
-  box-shadow: 0 8px 20px rgba(24, 22, 20, 0.09), 0 1px 3px rgba(24, 22, 20, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -1px 0 rgba(24, 22, 20, 0.07);
-}
-
-body.theme-night:not([data-page="presets"]) .footer-base .lang-btn {
-  color: #6E675F;
-}
-
-body.theme-night:not([data-page="presets"]) .footer-base .lang-btn:hover,
-body.theme-night:not([data-page="presets"]) .footer-base .lang-btn:focus-visible {
-  color: #181614;
-}
-
-body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed="true"] {
-  background-color: #C24B1E;
-  color: #FAF8F4;
-}
-
 /* Adaptive Breakpoints */
-@media (max-width: 1279px) {
-  .hero-asset-note {
-    position: static;
-    margin: 24px var(--gutter) 0;
-    max-width: 480px;
-  }
-}
-
 @media (max-width: 1180px) {
   .card-grid-5 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1878,10 +1806,6 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
     gap: 16px;
   }
 
-  .brand-sub {
-    white-space: nowrap;
-  }
-
   .nav-links {
     padding: 5px;
     gap: 2px;
@@ -1890,11 +1814,6 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
 
   .nav-links a {
     padding: 7px 11px;
-  }
-
-  .nav-right .btn-cta {
-    padding: 10px 18px;
-    font-size: 14px;
   }
 }
 
@@ -1958,10 +1877,15 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
   .site-nav {
     grid-template-columns: 1fr auto;
     gap: 14px;
+    padding-inline: var(--gutter);
   }
 
   .brand-lockup {
     min-height: 44px;
+  }
+
+  .nav-right {
+    gap: 10px;
   }
 
   .nav-toggle {
@@ -1971,10 +1895,6 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
     min-height: 44px;
     min-width: 68px;
     padding: 10px 18px;
-  }
-
-  .nav-right .nav-cta {
-    display: none;
   }
 
   .nav-links {
@@ -2006,17 +1926,6 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
 
   .site-nav.is-open .nav-links {
     display: flex;
-  }
-
-  .nav-mobile-extras {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-hairline);
-    margin-top: 4px;
   }
 
   .preset-detail-grid {
@@ -2116,14 +2025,14 @@ body.theme-night:not([data-page="presets"]) .footer-base .lang-btn[aria-pressed=
   }
 
   .lang-switch {
-    gap: 8px;
+    gap: 4px;
     padding: 4px;
   }
 
   .lang-btn {
     min-height: 44px;
     min-width: 44px;
-    padding: 10px 14px;
+    padding: 10px 12px;
   }
 
   .footer-submit {

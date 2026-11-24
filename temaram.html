@@ -12,23 +12,19 @@
   <meta property="og:description" content="Satu gestur menyelaraskan cahaya 2000K bebas silau, suara tenang, dan aroma botani Nusantara untuk ruang 15-25 m².">
   <meta property="og:image" content="https://tldstudio.id/assets/hero-desk-night.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body class="theme-night" data-page="temaram" data-i18n-title="meta.title.temaram">
   <a class="skip-link" href="#main-content" data-i18n="nav.skip">Langsung ke konten</a>
   <header class="site-hero">
     <nav class="site-nav" data-site-nav aria-label="Navigasi utama">
-      <a href="index.html" class="brand-lockup">
+      <a href="index.html" class="brand-lockup" aria-label="tld studio">
         <svg class="brand-mark-svg" viewBox="0 0 36 48" width="28" height="37" fill="currentColor" aria-hidden="true">
           <path d="M12 0h24v24H24V12H12V0Z"/>
           <rect x="0" y="12" width="12" height="12"/>
           <rect x="0" y="36" width="12" height="12"/>
           <path d="M12 24h12v12h12v12H24c-6.627 0-12-5.373-12-12V24Z"/>
         </svg>
-        <span class="brand-text">
-          <span class="brand-name">tld studio</span>
-          <span class="brand-sub">by the little different</span>
-        </span>
       </a>
 
       <ul id="primary-menu" class="nav-links">
@@ -36,18 +32,14 @@
         <li><a href="temaram.html" class="is-active" aria-current="page" data-i18n="nav.temaram">Temaram</a></li>
         <li><a href="presets.html" data-i18n="nav.presets">Preset</a></li>
         <li><a href="about.html" data-i18n="nav.about">Tentang Kami</a></li>
-        <li class="nav-mobile-extras">
-          <a href="#newsletter" class="btn-cta" data-i18n="nav.cta">Langganan Newsletter</a>
-          <div class="lang-switch" role="group" aria-label="Language switcher">
-            <button type="button" class="lang-btn" data-lang-btn="id" aria-pressed="true">ID</button>
-            <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-          </div>
-        </li>
       </ul>
 
       <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn" data-lang-btn="id" aria-pressed="true">ID</button>
+          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
+        </div>
         <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-menu" data-i18n="nav.menu">Menu</button>
-        <a href="#newsletter" class="btn-cta nav-cta" data-i18n="nav.cta">Langganan Newsletter</a>
       </div>
     </nav>
 
@@ -59,24 +51,10 @@
       <h1 class="hero-title" data-i18n="temaram.heroTitle">Napas hangat untuk menutup harimu.</h1>
       <p class="hero-lead" data-i18n-html="temaram.heroLeadHtml">Temaram ION 1 adalah pendamping ruang meja dari batu basalt vulkanik, kayu jati reklamasi Jawa, dan kisi Batik Kawung. Satu gestur menyelaraskan cahaya 2000K, suara tenang, dan aroma botani Nusantara.</p>
 
-      <div class="floating-bar" aria-label="Ringkasan perangkat keras dan perangkat lunak">
-        <div class="floating-slot">
-          <span class="slot-label" data-i18n="temaram.slot1Label">Hardware</span>
-          <div class="slot-box" data-i18n="temaram.slot1Value">22&nbsp;x&nbsp;11&nbsp;x&nbsp;19&nbsp;cm · Basalt &amp; Jati</div>
-        </div>
-        <div class="floating-slot">
-          <span class="slot-label" data-i18n="temaram.slot2Label">Pendamping iOS</span>
-          <div class="slot-box" data-i18n="temaram.slot2Value">Beta Apple TestFlight Aktif</div>
-        </div>
+      <div class="hero-actions">
         <a href="https://testflight.apple.com/join/dyy841pX" target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-lg" data-i18n="temaram.heroCta">Coba Beta iOS</a>
       </div>
     </section>
-
-    <aside class="hero-asset-note" aria-label="Kebutuhan foto hero Temaram">
-      <span class="asset-badge" data-i18n="asset.neededBadge">ASET DIBUTUHKAN</span>
-      <p data-i18n="asset.temaramHeroTitle">Foto wide Temaram ION 1 dengan cahaya 2000K di atas basalt dan kayu jati</p>
-      <p data-i18n="asset.temaramHeroSpec">Rasio 16:9 (1920x1080 px) · Latar hero utama temaram.html</p>
-    </aside>
   </header>
 
   <main id="main-content" tabindex="-1">
@@ -283,16 +261,12 @@
           <li><a href="https://testflight.apple.com/join/dyy841pX" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkBeta">Beta iOS (TestFlight)</a></li>
           <li><a href="https://www.instagram.com/tldstudio.id/" target="_blank" rel="noopener noreferrer" data-i18n="footer.linkIg">Instagram (@tldstudio.id)</a></li>
         </ul>
-        <div class="lang-switch" role="group" aria-label="Language switcher">
-          <button type="button" class="lang-btn" data-lang-btn="id" aria-pressed="true">ID</button>
-          <button type="button" class="lang-btn" data-lang-btn="en" aria-pressed="false">EN</button>
-        </div>
       </div>
       <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 tld studio &middot; by the little different.</p>
     </div>
   </footer>
 
-  <script src="i18n.js" defer></script>
+  <script src="i18n.js?v=2" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>
