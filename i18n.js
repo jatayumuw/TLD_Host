@@ -142,11 +142,6 @@ window.TLD_I18N = {
     'about.eyebrow': 'TLD STUDIO · BY THE LITTLE DIFFERENT',
     'about.heroTitle': 'Studio hardware taktil dan aplikasi iOS dari Indonesia.',
     'about.heroLeadHtml': 'Lahir di Apple Developer Academy @ BINUS, BSD City, tim beranggotakan enam orang kami memadukan kriya fisik, <em>hardware</em> Matter tertanam, dan aplikasi iOS untuk membangun objek harian yang lebih tenang.',
-    'about.slot1Label': 'Asal Tim',
-    'about.slot1Value': 'Apple Developer Academy · GOP 9',
-    'about.slot2Label': 'Disiplin',
-    'about.slot2Value': 'PM · Desain · Hardware · iOS · SRE',
-    'about.heroCta': 'Kenali Tim Kami',
 
     'about.storyHeading': 'Cara Kami Membangun Produk',
     'about.num1Title': 'Detail kecil menentukan pengalaman',
@@ -344,11 +339,6 @@ window.TLD_I18N = {
     'about.eyebrow': 'TLD STUDIO · BY THE LITTLE DIFFERENT',
     'about.heroTitle': 'Tactile hardware and calm iOS apps from Indonesia.',
     'about.heroLeadHtml': 'Born at Apple Developer Academy @ BINUS in BSD City, our six-person team combines physical craft, embedded Matter hardware, and iOS software to build calmer everyday objects.',
-    'about.slot1Label': 'Origin',
-    'about.slot1Value': 'Apple Developer Academy · GOP 9',
-    'about.slot2Label': 'Disciplines',
-    'about.slot2Value': 'PM · Design · Hardware · iOS · SRE',
-    'about.heroCta': 'Meet the Team',
 
     'about.storyHeading': 'How We Think About Building',
     'about.num1Title': 'Small details carry the experience',
