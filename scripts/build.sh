@@ -23,4 +23,9 @@ if [ -d assets ]; then
       done
 fi
 
+if [ -d team ]; then
+  cp -R team dist/team
+  find dist/team -name '.DS_Store' -exec rm -f {} +
+fi
+
 touch dist/.nojekyll
